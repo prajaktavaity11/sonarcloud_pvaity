@@ -2,9 +2,9 @@ name: SonarQube Scan
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -19,11 +19,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: SonarQube Scan (Debug)
+      - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v2
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        with:
-          args: >
-            -X
+          SONAR_TOKEN: ${e6e99cbd10268fe45773ca62358ffdec51854416}
+          SONAR_HOST_URL: ${https://sonarcloud.io/}
